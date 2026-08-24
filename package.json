@@ -1,0 +1,16 @@
+{
+  "name": "pi-insta",
+  "private": true,
+  "scripts": {
+    "postinstall": "chmod +x node_modules/node-pty/prebuilds/*/spawn-helper 2>/dev/null || true",
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm --filter web build && pnpm --filter server build",
+    "start": "pnpm --filter server start"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "node-pty",
+      "esbuild"
+    ]
+  }
+}
